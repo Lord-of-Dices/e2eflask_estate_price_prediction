@@ -29,6 +29,10 @@
 3. Find the most expensive and the most cheapest apartment in St. Petersburg after cleaning outliers.
 4. Calculate how many years does it take to cover all money spent on buying apartment by renting it. Find houses in which it's the most effective to invest in buying if you plan to rent and houses in which it will be the most ineffective.
 
+**Example of Visualization (clustering):**
+
+![alt text](https://github.com/Rozmanov423/e2e23flask_super_final/blob/main/images/vis.png)
+
 **After preprocessing of the data I create the model itself, as a metric of the algorythm performance I choose MSE. The best scaling techincue and ML algorythm are Standard Scaling and DecisionTreeRegressor**
 
 ```
@@ -83,4 +87,25 @@ print('RMSE:', rmse)
 
 ![alt text](https://github.com/Rozmanov423/e2e23flask_super_final/blob/main/images/model.png)
 
+<h2> Additional information </h2>
 
+**During this project I learn how to deal with Docker containers and remote machine. Besides, I improved my skills with github and Flask**
+
+You may connect to may virtual machine using following username and IP:
+
+```	
+ssh st110528@84.201.176.14
+```	
+
+The Dockerfile content/algorythm of actions:
+
+```	
+FROM ubuntu:20.04
+MAINTAINER Aleksandr Rozmanov
+RUN apt-get update -y
+COPY  . /opt/gsom_predictor
+WORKDIR /opt/gsom_predictor
+RUN apt install -y python3-pip
+RUN pip3 install -r requirments.txt
+CMD python3 app.py
+```	
