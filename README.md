@@ -109,3 +109,26 @@ RUN apt install -y python3-pip
 RUN pip3 install -r requirments.txt
 CMD python3 app.py
 ```	
+**Information about remote machine:**
+```	
+app.run(debug = True, port = 5444, host = '0.0.0.0')
+```	
+In order to run virtual machine port we should use this code after:
+```	
+sudo apt install ufw
+sudo ufw allow 5444 
+```	
+
+Then build and run the docker container
+
+```	
+#My image:
+#st110528/e2e23_class_predictor:v.0.1 .
+
+#Basic algorythm:
+docker build -t <your login>/<directory name>:<version> .     
+docker run --network host -it <your login>/<directory name>:<version> /bin/bash
+docker run --network host -d <your login>/<directory name>:<version>   
+docker ps 
+docker stop <container name> 
+```	
